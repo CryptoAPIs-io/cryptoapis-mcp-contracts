@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-contracts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MCP server for reading smart contract ABIs and on-chain data from EVM and Solana blockchains via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",
