@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.CryptoAPIs-io/mcp-contracts",
+  "description": "MCP server for reading smart contract ABIs and on-chain data from EVM and Solana blockchains via Crypto APIs",
+  "repository": {
+    "url": "https://github.com/CryptoAPIs-io/cryptoapis-mcp-contracts",
+    "source": "github"
+  },
+  "version": "0.2.2",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@cryptoapis-io/mcp-contracts",
+      "version": "0.2.2",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Crypto APIs API key",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "CRYPTOAPIS_API_KEY"
+        }
+      ]
+    }
+  ]
+}

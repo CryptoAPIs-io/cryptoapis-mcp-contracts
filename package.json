@@ -1,6 +1,6 @@
 {
   "name": "@cryptoapis-io/mcp-contracts",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MCP server for reading smart contract ABIs and on-chain data from EVM and Solana blockchains via Crypto APIs",
   "license": "MIT",
   "author": "Crypto APIs, Inc.",
@@ -8,6 +8,7 @@
     "type": "git",
     "url": "https://github.com/CryptoAPIs-io/cryptoapis-mcp-contracts.git"
   },
+  "mcpName": "io.github.CryptoAPIs-io/mcp-contracts",
   "keywords": [
     "mcp",
     "cryptoapis",
@@ -24,7 +25,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "server.json"
   ],
   "bin": {
     "cryptoapis-mcp-contracts": "dist/cli.js"
