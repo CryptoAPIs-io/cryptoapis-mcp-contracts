@@ -1,4 +1,4 @@
-import type { CryptoApisHttpClient, RequestResult } from "@cryptoapis-io/mcp-shared";
+import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { SolanaContractToolSchema, type SolanaContractInput } from "./schema.js";
 import { handleGetTokenDetailsByContractAddress } from "./get-token-details-by-contract-address/index.js";
@@ -19,7 +19,7 @@ export const solanaContractTool: McpToolDef<typeof SolanaContractToolSchema> = {
     },
     inputSchema: SolanaContractToolSchema,
     handler:
-        (client: CryptoApisHttpClient) =>
+        (client: CryptoApisHttpClient, logger: McpLogger) =>
         async (input: SolanaContractInput) => {
             let result: RequestResult<unknown>;
 
@@ -31,7 +31,20 @@ export const solanaContractTool: McpToolDef<typeof SolanaContractToolSchema> = {
                         context: input.context,
                     });
                     break;
+                default:
+                    throw new Error(`Unknown action: ${(input as Record<string, unknown>).action}`);
             }
+
+            logger.logInfo({
+                tool: "solana_contract_data",
+                action: input.action,
+                blockchain: "solana",
+                network: input.network,
+                creditsConsumed: result.creditsConsumed,
+                creditsAvailable: result.creditsAvailable,
+                responseTime: result.responseTime,
+                throughputUsage: result.throughputUsage,
+            });
 
             return {
                 content: [
