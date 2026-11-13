@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { SolanaContractToolSchema, type SolanaContractInput } from "./schema.js";
@@ -13,6 +14,8 @@ Networks: mainnet, devnet`;
 
 export const solanaContractTool: McpToolDef<typeof SolanaContractToolSchema> = {
     name: "solana_contract_data",
+    title: "Solana token details",
+    annotations: READ_ONLY_TOOL,
     description: SOLANA_CONTRACTS_DESCRIPTION,
     credits: {
         "get-token-details-by-contract-address": getTokenDetailsByContractAddressCredits,

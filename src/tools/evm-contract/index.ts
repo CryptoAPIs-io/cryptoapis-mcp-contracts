@@ -1,3 +1,4 @@
+import { READ_ONLY_TOOL } from "@cryptoapis-io/mcp-shared";
 import type { CryptoApisHttpClient, McpLogger, RequestResult } from "@cryptoapis-io/mcp-shared";
 import type { McpToolDef } from "../types.js";
 import { EvmContractToolSchema, type EvmContractInput } from "./schema.js";
@@ -16,6 +17,8 @@ Blockchain → Networks:
 
 export const evmContractTool: McpToolDef<typeof EvmContractToolSchema> = {
     name: "evm_contract_data",
+    title: "EVM token contract details",
+    annotations: READ_ONLY_TOOL,
     description: EVM_CONTRACTS_DESCRIPTION,
     credits: {
         "get-token-details-by-contract-address": getTokenDetailsByContractAddressCredits,
